@@ -1,0 +1,53 @@
+.segment-list-container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header-row {
+    flex-shrink: 0;
+    padding-bottom: 1em;
+    background-color: white;
+    z-index: 1;
+}
+
+.scrollable-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-top: 1em;
+}
+
+.header-row .grid,
+.scrollable-content .grid {
+    width: 100%
+}
+
+.header-row::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0));
+    pointer-events: none;
+}
+
+.segment-list-container .grid.row {
+    margin-bottom: 0; /* Remove bottom margin from grid rows if necessary */
+}
+
+.segment-list-container .grid .column {
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions for hover effects */
+}
+
+.segment-list-container .grid .column:hover {
+    background-color: #f4f4f4; /* Light gray background on hover */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Slightly more pronounced shadow on hover */
+}
+
+.column-header {
+    font-weight: bold;
+    background-color: #f4f4f4; /* Light grey background for header row */
+}
